@@ -9,7 +9,7 @@ Mentor: MUZAMMIL
 Overview of the Project-SENTIMENT
 ANALYSIS WITH
 NLP
-
+![Screenshoot](https://github.com/kaviyaanandan/CODETECH-TASK2/blob/879541b267f35c30e98165558bd67e6ef11e17f4/task-2.png)
 
 Sentiment Analysis with NLP using TF-IDF and Logistic Regression
 
