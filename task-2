@@ -1,0 +1,66 @@
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import classification_report
+from sklearn.preprocessing import LabelEncoder
+
+data = pd.DataFrame({
+    "review": [
+        "I love this product!",
+        "Worst experience ever.",
+        "It was okay, not great.",
+        "Amazing quality and great value.",
+        "Terrible, I will never buy again.",
+        "Really happy with this purchase!",
+        "I hate this item.",
+        "Not bad, could be better."
+    ],
+    "sentiment": [
+        "positive", "negative", "neutral",
+        "positive", "negative", "positive",
+        "negative", "neutral"
+    ]
+})
+
+data
+
+
+label_encoder = LabelEncoder()
+data["sentiment_label"] = label_encoder.fit_transform(data["sentiment"])
+data
+
+data = pd.DataFrame({
+    "review": reviews,
+    "sentiment": sentiments
+})
+train_reviews, test_reviews, train_labels, test_labels = train_test_split(
+    data["review"],
+    data["sentiment_label"],
+    test_size=0.25, 
+    random_state=42
+)
+
+tfidf = TfidfVectorizer(stop_words="english")
+train_tfidf = tfidf.fit_transform(train_reviews)
+test_tfidf = tfidf.transform(test_reviews)
+
+model = LogisticRegression(max_iter=500)
+model.fit(train_tfidf, train_labels)
+
+train_reviews
+
+
+print("=== CLASSIFICATION REPORT ===")
+print("Unique test_labels:", sorted(set(test_labels)))
+print("Label encoder classes:", label_encoder.classes_)
+
+your_text = "I am not happy with this product."
+your_tfidf = tfidf.transform([your_text])
+your_prediction = model.predict(your_tfidf)[0]
+
+print("\nYour text sentiment prediction:", label_encoder.inverse_transform([your_prediction])[0])
+
+
+
+
