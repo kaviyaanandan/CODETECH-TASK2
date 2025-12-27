@@ -11,8 +11,6 @@ ANALYSIS WITH
 NLP
 ![Screenshoot](https://github.com/kaviyaanandan/CODETECH-TASK2/blob/879541b267f35c30e98165558bd67e6ef11e17f4/task-2.png)
 
-Sentiment Analysis with NLP using TF-IDF and Logistic Regression
-
 Objective
 
 The objective of this project is to perform Sentiment Analysis on customer review data using Natural Language Processing (NLP) techniques. The project focuses on transforming textual data into numerical features using TF-IDF Vectorization and building a Logistic Regression classifier to predict sentiment categories such as positive, negative, and neutral.
